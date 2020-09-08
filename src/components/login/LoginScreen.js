@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { AuthContext } from '../../auth/AuthContext';
+import { types } from '../../types/types';
 
 const LoginScreen = ({ history }) => { //extraigo el history de las props
 
+    const { dispatch } = useContext(AuthContext)
+
     const handleLogin = () => {
+        // history.replace('/')
+        dispatch({
+            type: types.login,
+            payload: {
+                name: 'Jose'
+            }
+        });
         history.replace('/')
     }
     return (
@@ -21,3 +32,4 @@ const LoginScreen = ({ history }) => { //extraigo el history de las props
 }
 
 export default LoginScreen
+//extraer del context la function dispatch y este tiene que mandar a llamar un action que tenfa
