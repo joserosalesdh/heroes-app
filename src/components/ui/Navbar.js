@@ -11,10 +11,11 @@ export const Navbar = () => {
     const history = useHistory(); //esto ya me da la history y no hace falta que la mande desde el dashboardroute
     // El context provider facilita información en el arbol de componentes 
     const handleLogout = () => {
+        history.replace('/login')
         dispatch({
             type: types.logout
         });
-        history.replace('/login')
+
     };
 
     return (

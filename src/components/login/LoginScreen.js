@@ -7,6 +7,8 @@ const LoginScreen = ({ history }) => { //extraigo el history de las props
     const { dispatch } = useContext(AuthContext)
 
     const handleLogin = () => {
+
+        const lastPath = localStorage.getItem('lastPath') || '/';
         // history.replace('/')
         dispatch({
             type: types.login,
@@ -14,7 +16,7 @@ const LoginScreen = ({ history }) => { //extraigo el history de las props
                 name: 'Jose'
             }
         });
-        history.replace('/')
+        history.replace(lastPath)
     }
     return (
         <div className="container mt-5">
